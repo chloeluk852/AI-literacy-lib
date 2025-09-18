@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="img/landingPage/P-logo.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>AI Literacy Part A Project Library</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0 auto;
+        background-color: #f0f0f0;
+      }
+      header {
+        text-align: center;
+        background-color: white;
+        padding: 10px 0;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      header img {
+        width: 100%;
+        max-width: 250px;
+      }
+      h1 {
+        text-align: center;
+        color: #404041;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      /* Card Flip Styles */
+      .card {
+        background-color: transparent;
+        width: 220px;
+        height: 280px;
+        margin: 15px;
+        perspective: 1000px;
+      }
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .card:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+      .card-front {
+        background-color: white;
+        color: #404041;
+      }
+      .card-back {
+        background-color: #2c3e50;
+        color: white;
+        transform: rotateY(180deg);
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      .card-back p {
+        font-size: 0.85em;
+        line-height: 1.5;
+        text-align: left;
+        width: 100%;
+        height: 95%;
+        overflow-y: auto;
+        margin: 0;
+        padding-right: 5px;
+      }
+      .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .card h2 {
+        font-size: 1em;
+        padding: 15px 10px 0 10px;
+        margin: 0;
+        color: #333;
+      }
+      .card h4 {
+        color: #6d6d6d;
+        font-size: 0.8em;
+        font-weight: 500;
+        margin: 5px 0 0 0;
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://assets-global.website-files.com/621c8623577d733485743b59/621c8623577d739e24743b67_Preface-logo-Web-Header-2022.svg"
+        alt="Preface Logo"
+      />
+    </header>
+
+    <h1>Student Project Library</h1>
+
+    <div id="cardContainer" class="container"></div>
+
+    <script>
+      const projectsData = [
+        {
+          "Student Name": "Alvin Ng",
+          Title: 'The future of "Breaking Bad"',
+          Prompt:
+            "give me a picture of something that resembles a TV Show with a far away shot Proximity looking down at the main character while being negative with a Davinci style preset that references a cowboy who is Walter White and he is putting some money into his safe",
+          ImagePath:
+            "https://drive.google.com/file/d/1s8HB-7VCgnIdgJPN15wHNQY0K_B4Vkme/preview",
+        },
+        {
+          "Student Name": "Amelia Tan",
+          Title: "Imagine a robot teacher",
+          Prompt:
+            "A fun classroom where kids are learning new skills with the help of AI. The children are in a pastel coloured classroom and a robot is pointing to a chalkboard which says pi. The children have soft smiles on their faces. The classroom is inside. This will be an oil painting medium. It is a playful mood. It is framed in a bird’s eye view. Thelighting is bright. Andy Warhol Style. Use a light archival preset",
+          ImagePath:
+            "https://drive.google.com/file/d/1tzQdq0wEF1cddYKS1cCF7NAf5Sxk8utV/preview",
+        },
+        {
+          "Student Name": "Anson Au",
+          Title: "The future of transportation",
+          Prompt:
+            "A humanoid robot with a sleek, metallic body and glowing blue eyes sits at a small wooden table inside a cozy, old-fashioned pizza place. The walls are adorned with faded photographs, vintage posters, and checkered wallpaper, evoking a nostalgic atmosphere. The robot is holding a slice of cheesy pepperoni pizza, with strings of melted cheese stretching as it lifts the slice. The table is covered with a red-and-white checkered tablecloth, and a half-empty soda bottle stands nearby. Neon signs glow faintly in the background, illuminating the dimly lit space with warm, retro hues. The contrast between the advanced, futuristic robot and the rustic charm of the old pizza shop creates a whimsical and intriguing scene.",
+          ImagePath:
+            "https://drive.google.com/file/d/1_Rnv5NvqawG3LgRd8hhsiHeIdibONlqO/preview",
+        },
+        {
+          "Student Name": "Alicia Tan",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/1S9ELncMS7yjgpxV0xK1tvVVyXT7xDuer/preview",
+        },
+        {
+          "Student Name": "Audrey Shy",
+          Title: "The future of DJ",
+          Prompt:
+            "Capture a DJ wearing futuristic noise canceling glowing headphones, engaging a crowd at a neon-lit festival, with high resolution digital photography that conveys an energetic and electrifying mood through a wide angle shot that captures both the crowd and the stage. Make the crowd have something connecting them to either the stage or the dj, for a more creative way of listening.",
+          ImagePath:
+            "https://drive.google.com/file/d/18lwMgATSkIY8F5fGA7sKhFv5vuY5bmNd/preview",
+        },
+        {
+          "Student Name": "Brad Cho",
+          Title: "The future of resturants",
+          Prompt:
+            "A futuristic restaurant scene with a robot waiter serving a glowing blue dessert on a plate to two smiling people sitting at a table. The table also has a plate of sushi and a drink. The setting includes warm lighting and a cozy interior.",
+          ImagePath:
+            "https://drive.google.com/file/d/1TL3KzrbuRkkCXK38dtdOdW2c3vA1xKWn/preview",
+        },
+        {
+          "Student Name": "Brayden Shy",
+          Title: "Envisioning the future of the world",
+          Prompt:
+            "A breathtaking alien landscape featuring a vast valley surrounded by towering cliffs and mountains. The sky is a brilliant blue, adorned with multiple celestial bodies, including planets and moons, some with rings. In the foreground, futuristic structures are harmoniously integrated into the natural scenery, with vibrant, colorful foliage adding a touch of life. The scene is illuminated by bright sunlight, creating a sense of wonder and exploration in this otherworldly setting.",
+          ImagePath:
+            "https://drive.google.com/file/d/12W8VbQ5WzUtXFQ8Ss2Yuz64601Kejcmv/preview",
+        },
+        {
+          "Student Name": "Caitlyn Cheung",
+          Title: "Envisioning the Future of Music",
+          Prompt:
+            "The image portrays a whimsical, dreamlike scene featuring a grand piano floating amidst a sea of fluffy white clouds under a vibrant sunset sky. The piano is open, with sheet music resting on its stand, and musical notes are floating upward and outward, as if being released into the air. The overall atmosphere is magical and serene, blending the elegance of the black piano with the ethereal beauty of the clouds and the warm hues of the setting sun.",
+          ImagePath:
+            "https://drive.google.com/file/d/1Jmmg1YUDtVvqC2jaxQNMg3edWlEcY3Vm/preview",
+        },
+        {
+          "Student Name": "Cheuk Yin Chaz Lee",
+          Title: "Imagining the Future of Travel",
+          Prompt:
+            "A futuristic Pokémon safari where trainers can observe and capture Pokémon in their natural habitats. The medium is a detailed 3D rendering. The environment showcases diverse biomes, from lush jungles to arid deserts, with advanced hovercrafts navigating through the terrain. The lighting varies from bright sunlight in the savanna to dappled light in the forest. The color palette features vibrant earth tones and rich greens, highlighting the beauty of nature. The mood is adventurous and exhilarating, capturing the thrill of exploration. The composition presents trainers in hovercrafts, spotting Pokémon in the distance, with panoramic views of the landscapes.",
+          ImagePath:
+            "https://drive.google.com/file/d/17wTy0uwbd5ZaBJ0TUVwxvxMwq4ni7QCG/preview",
+        },
+        {
+          "Student Name": "Chilam Tang",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/15Wcd1dTupyp5nQTI1h-NELrMIfRpmacq/preview",
+        },
+        {
+          "Student Name": "Ching Lung Bruce Lan",
+          Title: "Imagining the Future of Space Farming",
+          Prompt:
+            "A whimsical scene of a cow with vibrant wings soaring through a starry night sky, leaving a trail of sparkling stardust behind. The moon looms large, casting a magical glow.",
+          ImagePath:
+            "https://drive.google.com/file/d/1dScreDEXOAMJDUhBBWCkg5MLRnh4rwXW/preview",
+        },
+        {
+          "Student Name": "Curtis Wong",
+          Title: "Envisioning the Future of Nature Conservation",
+          Prompt:
+            "An enchanting forest scene showcasing the rich diversity of woodland life. Towering trees with thick trunks create a natural canopy above, while sunlight streams through the leaves, casting playful shadows on the forest floor. A carpet of ferns and wildflowers adds vibrant colors, and a winding path invites exploration. Include small woodland creatures, like rabbits and squirrels, and the sound of a nearby babbling brook, enhancing the serene and magical atmosphere of this peaceful woodland retreat. Cinematic style",
+          ImagePath:
+            "https://drive.google.com/file/d/1bodew8U45pOzlTwBqSNLLCorO4nzUjSj/preview",
+        },
+        {
+          "Student Name": "Davey Chung",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/1OicQQ8UdyWaiKWMurf6oJ3l674-Zjzjw/preview",
+        },
+        {
+          "Student Name": "Edward Ng",
+          Title: "Exploring the Future of Urban Adventure",
+          Prompt:
+            "In a bustling city filled with advanced technology, Ash and his friends are surrounded by a chaotic scene where Pokémon interact with various gadgets. Pikachu stands at the forefront, looking bewildered as machines whir and flicker around them. The atmosphere highlights the amusing chaos that ensues when reliance on technology goes too far, showcasing a blend of adventure and humor in the Pokémon world.",
+          ImagePath:
+            "https://drive.google.com/file/d/1IkrfUANsDlPhaao19xIKPew0biER80E5/preview",
+        },
+        {
+          "Student Name": "Eason Li",
+          Title: "Dreaming of a Sustainable Future",
+          Prompt:
+            "This artwork features a radiant sunflower, brought to life as a vibrant painting. It’s set in a sunny meadow, illuminated by brilliant golden light that enhances the flower's bright yellows and deep greens. The mood feels joyful and uplifting, with the clear blue sky providing a serene backdrop. I chose a close-up view to help the scene stand out and tell its story.",
+          ImagePath:
+            "https://drive.google.com/file/d/1sRFXzCBcMEFyUTR2W5fR8u8sMBA9gvMY/preview",
+        },
+        {
+          "Student Name": "Elgar Lam",
+          Title: "Growing Together in Nature",
+          Prompt:
+            "a joyful outdoor gardening scene set in a lush, forested area under a bright blue sky with scattered clouds. A diverse group of children and a supervising adult are gathered in a circle on the ground, each holding small potted plants with green sprouts. The children, wearing colorful casual clothing, are smiling and engaged, planting the pots into the soil, while the adult stands nearby observing. The atmosphere is warm and collaborative, highlighting a community effort to nurture nature amidst the natural backdrop of tall trees.",
+          ImagePath:
+            "https://drive.google.com/file/d/1E8d7oWnMsTcd_dn80fYqLxje961S0wLr/preview",
+        },
+        {
+          "Student Name": "Ellie (Eleanor) Yi Lin Wong",
+          Title: "Magical Moonlit Puppy Parade",
+          Prompt:
+            "a whimsical, vibrant scene set in a lush park at twilight, with a large full moon and a colorful sunset sky casting a magical glow. In the foreground, a group of adorable, fantastical dogs with fluffy fur in bright, multicolored patterns—such as orange, blue, and purple—sit happily on the grass, wearing matching collars. One dog with wings is flying above them, adding a playful element. In the background, a diverse group of people stands watching, while a serene stream and silhouetted trees enhance the enchanting atmosphere of this lively, imaginative gathering.",
+          ImagePath:
+            "https://drive.google.com/file/d/1v-NZ6k_ODzwYEht32bTb-SsVoueKank_/preview",
+        },
+        {
+          "Student Name": "Emma Hunt",
+          Title: "Robot Coding Teacher",
+          Prompt:
+            "A cheerful classroom setting where a friendly robot teacher, with a white and blue design and a big smile, is instructing a group of young students. The robot is pointing to a chalkboard displaying code snippets, while the students, including two girls and a boy, are engaged at desks with laptops and tablets, also showing code on their screens. The atmosphere is bright and collaborative, with a modern educational vibe, featuring simple, colorful cartoon-style characters and a focus on coding education.",
+          ImagePath:
+            "https://drive.google.com/file/d/1sQmnBzapN5gpAarcILvy7WLl0OSWDmET/preview",
+        },
+        {
+          "Student Name": "Enoch Sum Yuet Chan",
+          Title: "AI Powered Flying Cars",
+          Prompt:
+            "An image showing a city without any roads, but there are flying, AI-powered cars with neon colors traveling around the sky. Flying trains run on imaginary tracks that appear when trains are on them. The image shows an optimistic future.",
+          ImagePath:
+            "https://drive.google.com/file/d/1DLJvvcLS0FvmMO5_tZ9TFS32sA5XOQYG/preview",
+        },
+        {
+          "Student Name": "Enzo Yau Ka Chan",
+          Title: "Into the Future",
+          Prompt:
+            "The show is called “Into The Future”, and the sky is purple with a lot of high-rise buildings. The show is filmed from the side, and it contains lots of futuristic technology which come from the future. Inventions like teleportation, time traveling, and space explorations have been invented in the show. Transportations like flying taxis and auto-driving cars will make the roads even more crowded than ever before.",
+          ImagePath:
+            "https://drive.google.com/file/d/1ve1rJuVVNCpvC-EQNOEDNTQ-HFZrMZew/preview",
+        },
+        {
+          "Student Name": "Ethan Mak",
+          Title: "Vision of a Modern Metropolis",
+          Prompt:
+            "a 1980s uturistic style wide shot of new york. the twin towers are now transfromened into top tier cutting edge technological study facilities. the entire city is filled with 1980s nostalgic vibe while having many futuridtic things such as flyign cars and bullet maglev trains. the city is slowly started to get eroded by the opposite world. some buildings havce been crawled over by dark tentacles. teh city should glow in blue , aqua colour.",
+          ImagePath:
+            "https://drive.google.com/file/d/1QrsMJG3sfoSCPPh9KGtLiMao7sLbmyip/preview",
+        },
+        {
+          "Student Name": "Ethan Shu Yin Zheng",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/1Khy5bN3IqOkIP6yQJ0VXdJ194UPuhaeW/preview",
+        },
+        {
+          "Student Name": "Everest Cannon",
+          Title: "Jurassic Lego Escape",
+          Prompt:
+            "A close-up scene depicting the process of digital animation using onion skinning, illustrated in a Studio Ghibli style. The subject is a digital animator focused on their tablet, surrounded by glowing screens displaying layered frames of animation. The environment is a charming animation studio, filled with whimsical decor, colorful sketches, and plants that exude creativity. The lighting is warm and inviting, with a soft glow from the screens and gentle sunlight streaming through large windows. The color palette features vibrant greens, soft pastels, and warm wood tones, enhancing the enchanting atmosphere. The mood is dedicated and inspiring, capturing the artistry involved in digital animation. The composition centers on the animator’s hands on the tablet, with the onion skin layers artistically framing the scene, drawing viewers into the magical world of animation.",
+          ImagePath:
+            "https://drive.google.com/file/d/1X8YiFW3ywDyQRT5OJDJcekFYgdGIqFth/preview",
+        },
+        {
+          "Student Name": "Felicia Chiu",
+          Title: "Imagining the Future of Creative Technology",
+          Prompt:
+            "Make me an image of a AI robot. It should be painting on a canvas using a brush. you should only be able to see its back and make it knee level shot. Th robot AI is painting in the living room.",
+          ImagePath:
+            "https://drive.google.com/file/d/13bVDxldq8JXWpDjtNUThBE-8cBf94TP1/preview",
+        },
+        {
+          "Student Name": "Gawain Chun Chi Ng",
+          Title: "Pokemon Family Adventure",
+          Prompt:
+            "a cheerful family outing in a vibrant meadow during a golden sunset, surrounded by rolling hills and scattered wildflowers. The family, consisting of a man, a woman wearing a hat, and two children, are sitting on the grass, each engrossed in their smartphones, capturing the moment. Surrounding them are beloved Pokémon characters—Pikachu, Eevee, Grookey, and Squirtle—adding a playful and magical touch to the scene.",
+          ImagePath:
+            "https://drive.google.com/file/d/1hMVKoWdoVDukFr5k5RCVewgYMbZ1Hm7B/preview",
+        },
+        {
+          "Student Name": "Glenn Li",
+          Title: "Crystal Guradians Of Enchanted Forest",
+          Prompt:
+            "a mystical forest scene at twilight, where a glowing, crystal-encrusted Bulbasaur stands prominently in the foreground, its body shimmering with iridescent blue hues and adorned with sparkling gem-like formations. Behind it, ethereal, translucent versions of Bulbasaur, Squirtle, and Charmander float, their forms illuminated by a soft, magical light that contrasts with the dense, lush greenery and shadowy trees.",
+          ImagePath:
+            "https://drive.google.com/file/d/1HTf_TiSnVdWfOWwpTGh9Fkbff5bS5hWK/preview",
+        },
+        {
+          "Student Name": "Hayden Poon",
+          Title: "Imagining the future of star wars",
+          Prompt:
+            "generate me an image two people having a lightsaber duel from a bird's eye view and they are not the same person, both have different color lightsabers, and they are fighting in the night. and use a cinematic style please and thank you",
+          ImagePath:
+            "https://drive.google.com/file/d/12b0L-0NQAkn12WzneUg7PNk1Ecl1VqFH/preview",
+        },
+        {
+          "Student Name": "Hilary",
+          Title: "Envisioning Tomorrow's Oasis",
+          Prompt:
+            "A cozy Roblox garden at night under a starry sky, with glowing mushrooms and bioluminescent plants in shades of blue and green, a Robloxian gardener in overalls planting seeds with a magical glowing shovel, wooden benches and a small campfire casting a warm glow, with a pixelated moon illuminating the scene.",
+          ImagePath:
+            "https://drive.google.com/file/d/19Qn0i6kWJ3vhrmnsp9oVgxvrwZjRlA05/preview",
+        },
+        {
+          "Student Name": "Ho Wang Koen Kwok",
+          Title: "Imagine a flying turtle in the clouds",
+          Prompt:
+            "Create a turtle wearing a booster and flying in the sky, the mood is relaxed with natural light and a sunset. there should be a rich amount of warm colours, make it a portrait.",
+          ImagePath:
+            "https://drive.google.com/file/d/1Osk7I3zVzG9J_QDB9K-Tyk-B7rhL_HUi/preview",
+        },
+        {
+          "Student Name": "Hugo Leung",
+          Title: "Exploring New Worlds",
+          Prompt:
+            "Imagery that suggests fleeting consciousness, surreal memory fragments, and dreamlike settings. Make it a glitchy and scifi atmosphere, making it almost seem unreal. make it a wide angle shot, making everyone consider if they are indeed a Boltzmann brain: a brain that just popped into existence for a moment, with fake memories and fake surroundings,Like a cosmic daydream that lasts only a second.",
+          ImagePath:
+            "https://drive.google.com/file/d/1ny3Dj3QPjxuEJoBDngaVnLARa-7WELMh/preview",
+        },
+        {
+          "Student Name": "Jacob Chong",
+          Title: "The future of sports",
+          Prompt:
+            "A futuristic portrait envisioning the NBA in a cinematic and dramatic fashion, showcasing advanced holographic interfaces, cybernetic enhancements on players, sleek and transparent uniforms, arena with gravity-defying elements, 8k ultra-HD, photo-realistic, 35mm lens, sharp focus, high contrast, neon lighting, electric blue and silver color palette, style of Syd Mead, detailed textures, cosmic ambiance",
+          ImagePath:
+            "https://drive.google.com/file/d/1-n7LiS2Wysycinwa56U9F1rmcOaJ8sLM/preview",
+        },
+        {
+          "Student Name": "Jaydee Tang",
+          Title: "The future of space travel",
+          Prompt:
+            "a future car in a form of painting with a robot in the car, flying on the moon, with a soft lighting, with black and white shades,gloomy mood and a close up view",
+          ImagePath:
+            "https://drive.google.com/file/d/12KN6dmeTuVAKKT-6cM6AhK4qENCIs04q/preview",
+        },
+        {
+          "Student Name": "Jayden",
+          Title: "The Guardian's Call",
+          Prompt:
+            "A child standing before a massive canvas that mirrors their silhouette—but the reflection is a crowned warrior. Dramatic backlighting, gold-leaf accents on black.",
+          ImagePath:
+            "https://drive.google.com/file/d/1gbaq2K-m4mPpO5659GFgGi7nL1MdNLdS/preview",
+        },
+        {
+          "Student Name": "Jayden Ma",
+          Title: "The Future of Nature's Embrace",
+          Prompt:
+            "A landscape painting with a natural scene, with hills and a vibrant sky. The colors are capturing the warmth of sunlight as it bathes the landscape, making the feelings of warm and soft.",
+          ImagePath:
+            "https://drive.google.com/file/d/12p-LwEIBoQ7AJw5RqZ0Xhz8edu_E5TMl/preview",
+        },
+        {
+          "Student Name": "Joseph Wei",
+          Title: "Imagine the Future of Cosmic Jelly Feast",
+          Prompt:
+            "The visual style features soft, jelly-like characters with glossy textures, bright pastel tones, and a playful, synthetic aesthetic. Two AI-style children stand side by side at the center of the image. Their skin is extremely pale, almost sickly white, with an artificial glow that emphasizes their non-human, animated look. Both have exaggerated pink blush on their cheeks, giving them a doll-like appearance. The girl has long dark hair tied back in a single ponytail with a bright red ribbon. She wears a white blouse under a red sleeveless dress.",
+          ImagePath:
+            "https://drive.google.com/file/d/1T07Bciek5zbaufpVlRxxccMQUBisk5Qf/preview",
+        },
+        {
+          "Student Name": "Joshua Chu",
+          Title: ".",
+          Prompt:
+            "Illustrate the Frontman on an elevated platform, observing the frantic activity below. Contestants are anxiously gearing up for the upcoming challenge, all under his vigilant scrutiny. Use a long shot camera angle to capture the scale of the scene and emphasize his commanding presence.",
+          ImagePath:
+            "https://drive.google.com/file/d/128CLW9_jA7TJ2vHZSVVNgk3xDYH1eV0X/preview",
+        },
+        {
+          "Student Name": "Julien Yung",
+          Title: "Envisioning Tomorrow's Leadership",
+          Prompt:
+            "A world map made of various chicken dishes from different cultures, highlighting diversity in cooking styles and flavors --no bland presentations, no lack of color, no unappetizing dishes, no single cuisine focus.",
+          ImagePath:
+            "https://drive.google.com/file/d/1wD1VXpYcMRSAMF6oNA0G3qHlGo1wWsRq/preview",
+        },
+        {
+          "Student Name": "Karine Cheung",
+          Title: "Imagine cats in the city",
+          Prompt:
+            "create an cinematic image of a busy street in the futuristic city owned by cats, cats walk like human, shops on the side of the street, cats driving cars, cats sitting outside of cafe shop, wide angle, day time, soft sunlight, --ar 1:1",
+          ImagePath:
+            "https://drive.google.com/file/d/1sLgip4qldlLD5N4KuVwbid32RsJ-3GlP/preview",
+        },
+        {
+          "Student Name": "Karina Lam",
+          Title: "Envisioning atronaughts in the future",
+          Prompt:
+            "An astronaut in a detailed spacesuit, rendered in a hyper-realistic digital art style, inside a high-tech space capsule with control panels and small windows showing a starry void, illuminated by soft, glowing interior lights contrasting with the dark exterior space, with metallic grays, deep blacks, and vibrant whites with hints of blue, evoking a very uplifting and awe-inspiring mood, captured in a close-up shot focusing on the astronaut’s face and upper body.",
+          ImagePath:
+            "https://drive.google.com/file/d/1bq49rEqd7xsAjCvgDDrTLj_AqWCPEOyp/preview",
+        },
+        {
+          "Student Name": "Kayton Cheung",
+          Title: "Envisioning a Future Amid the Flames",
+          Prompt:
+            "A city on fire and dust clouds rising up, with bright lighting and brown and grey as the main colors, evoking gloom and hopelessness",
+          ImagePath:
+            "https://drive.google.com/file/d/1A3qo-zy_R0QSYr_A-YlDMZOtaUSLmXAc/preview",
+        },
+        {
+          "Student Name": "Kieran Leung",
+          Title: "The future of stock market crash",
+          Prompt:
+            "the crash of the stock market and the fall of many currencies as inflation and shortage of rescources, along with greed of companies hits hard. Setting of wall street, similar style and tone with the tv show wall street week. Show screens and panicking people while showing many stocks plummeting in value and only red text, with ads of egg prices being absurdly expensive",
+          ImagePath:
+            "https://drive.google.com/file/d/19zi2My6VACJUEMylM3s78OEVk49nsbxo/preview",
+        },
+        {
+          "Student Name": "Kwun yu",
+          Title: "Future of blade ball",
+          Prompt:
+            "A group of Roblox characters huddled together, strategizing before a game, with unique team colors and gear.",
+          ImagePath:
+            "https://drive.google.com/file/d/1-5sX83kc6nPOLxSyuIveq3Wy4hAVMozJ/preview",
+        },
+        {
+          "Student Name": "Leo Li",
+          Title: ".",
+          Prompt:
+            "This artwork features a street-smart investigator, brought to life as a vibrant spray paint mural. It’s set in an urban alleyway, illuminated by harsh, neon lights that create stark contrasts with the gritty textures and bold colors, giving it a dynamic mood. I chose a panoramic view to help the scene stand out and tell its story.",
+          ImagePath:
+            "https://drive.google.com/file/d/1Zd2poqznIEKXfTKYhSGk6hvP3qK86GY7/preview",
+        },
+        {
+          "Student Name": "Marcus Ng",
+          Title: "Envisioning natures beauty",
+          Prompt:
+            "In the image,there should be a futuristic humanoid figure composed of intertwining organic vines and glowing digital circuits, symbolising the connection between humanity, nature, and technology. The figure is reaching out to hold hands with a translucent robotic arm, representing artificial intelligence. In the background, small interconnected groups of people, plants, and machines are scattered, forming a harmonious network.The style of the image should be a hyper-detailed digital illustration, blending realism and surrealism.The background for this image is futuristic cityscape with a mix of lush greenery and sleek technological structures, seamlessly integrated into one another. The skyline features floating platforms and holographic displays.For the lighting , a soft ambient glow combined with neon highlights from the holographic elements and the circuitry on the humanoid figure, creating a balance of warmth and futurism.The colour scheme for this image is a vibrant and luminous palette dominated by shades of teal, emerald green, and gold, contrasted with neon blues and magentas.This image should evoke optimism and thought-provoking, evoking feelings of hope, curiosity, and wonder about the possibilities of future connections.Most importantly the image’s format should be wide-angle view, with the humanoid figure and robotic arm in the center foreground, framed by the cityscape and interconnected groups in the background, creating a sense of depth and interconnectedness.",
+          ImagePath:
+            "https://drive.google.com/file/d/1_VJG8oVEegfPpLDYuJMnf8ldpa4G3Gcc/preview",
+        },
+        {
+          "Student Name": "Marquis Chan",
+          Title: "Future of grocery store",
+          Prompt:
+            "In a mixed media collage, an array of food packages with digital displays is showcased in a futuristic grocery store aisle. The soft, even lighting creates a spotlight effect on the packages, enhancing their appeal. Bright, engaging colors combined with digital blues and greens give the scene a futuristic and informative mood. Symmetrically arranged on the shelves, the composition highlights the advanced technology of smart packaging.",
+          ImagePath:
+            "https://drive.google.com/file/d/1aEuKWHfonh1Mz0puV0_8HUlgZBjVtpfC/preview",
+        },
+        {
+          "Student Name": "Max Cheung",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/1rVAqvS4EOBY07MVgDfAtQxVpn3bPKwtR/preview",
+        },
+        {
+          "Student Name": "Melissa Leung",
+          Title: "Imagine a clay heart",
+          Prompt:
+            "a fragile, cracked clay heart hanging delicately from a thin string against a soft, blurred background, evoking a sense of vulnerability and emotional depth. The heart, crafted from rough, grayish clay, bears visible fissures and imperfections, suggesting a broken or weathered state, yet it remains suspended with a quiet resilience. The lighting is gentle, casting subtle shadows that enhance the texture of the clay, creating a poignant and contemplative atmosphere that invites reflection on love, loss, or healing.",
+          ImagePath:
+            "https://drive.google.com/file/d/1XOmt1akUoL39175ihdUdpOK9lSDHrPfG/preview",
+        },
+        {
+          "Student Name": "Morris Ng",
+          Title: "Roosters of the Alpine Valley",
+          Prompt:
+            "a stunning alpine landscape with majestic, snow-capped mountains rising in the background, their peaks partially shrouded in a delicate mist under a clear blue sky with scattered clouds. In the foreground, a lush green valley dotted with pine trees hosts a lively flock of chickens and roosters, their vibrant feathers—ranging from rich browns to striking blacks and whites—standing out against the natural scenery.",
+          ImagePath:
+            "https://drive.google.com/file/d/1oQQRyH6CM0kIjbH462Y2QKnBz1Wd1ooP/preview",
+        },
+        {
+          "Student Name": "Natalie Sum Wing Ng",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/115O7HgVBlePnL66DZwh9V80mBXSh2pNe/preview",
+        },
+        {
+          "Student Name": "Nathan Mak",
+          Title: ".",
+          Prompt: ".",
+          ImagePath:
+            "https://drive.google.com/file/d/1DyBwxm4rA_uWF9ZlxytpBGx3vLGaZfej/preview",
+        },
+        {
+          "Student Name": "Owen Ip",
+          Title: "The future of VR",
+          Prompt:
+            "a vibrant, futuristic scene inside a high-tech virtual reality arcade, where two children are immersed in a digital adventure. Both wear sleek VR headsets with glowing red displays and headphones, their expressions filled with excitement as they interact with a holographic interface, their hands gesturing in the air. The background features a colorful, cosmic-themed environment with large screens displaying planets, abstract patterns, and robotic figures, illuminated by neon lights in shades of orange, purple, and blue, creating an engaging and dynamic atmosphere of innovation and play.",
+          ImagePath:
+            "https://drive.google.com/file/d/14psR67yWGgF6C4holxEl0JH6HNaAOP6o/preview",
+        },
+        {
+          "Student Name": "Pak Hei Nathan Ng",
+          Title: "Imagine Sung Jinwoo's Shadow Legion",
+          Prompt:
+            "Create an image of Sung Jinwoo commanding a legion of shadow soldiers, each one looking fierce and ready to fight, with a dramatic sky in the background.",
+          ImagePath:
+            "https://drive.google.com/file/d/182Aj434N7-qp13WPP51mD5OshMUl4vEw/preview",
+        },
+        {
+          "Student Name": "Pok Yin Hector Hui",
+          Title: "Imagine a Robo-Human Garden",
+          Prompt:
+            "a surreal and harmonious garden scene where sleek, white robots with glowing accents work alongside a human farmer, tending to a vibrant array of colorful flowers and fruit-bearing plants. The garden is lush with orange trees laden with fruit, surrounded by beds of bright roses in shades of pink, purple, and orange, all set under a canopy of leafy green trees. The robots and human collaborate seamlessly, harvesting crops and watering plants, creating a futuristic yet serene atmosphere that blends nature with advanced technology in a picturesque, sunlit setting.",
+          ImagePath:
+            "https://drive.google.com/file/d/1QlWT5F_nvdWn-PYXyXSE8xhA8LcYxkY2/preview",
+        },
+        {
+          "Student Name": "Rayden Do",
+          Title: "Imagine a Futuristic Beach Bliss",
+          Prompt:
+            "Futuristic Beach Scene - A sunny beach with kids holding sleek, futuristic umbrellas that shimmer in rainbow hues, dripping with style under golden sunlight.",
+          ImagePath:
+            "https://drive.google.com/file/d/1Z3xMvA659jjC_9q9oyEOoOHwQZXydorw/preview",
+        },
+        {
+          "Student Name": "Sophie Ip",
+          Title: "Kirby's Dreamy Island Hop",
+          Prompt:
+            "a whimsical, floating island paradise bathed in soft, pastel sunlight, where pink, mushroom-shaped landmasses rise from a shimmering turquoise sea. At the center, the beloved pink puffball Kirby leaps joyfully with his signature red shoes, surrounded by quirky structures adorned with green plants, tiny trees, and colorful flags. The islands are dotted with playful elements like balloons, a small robot, and glowing screens displaying icons, while fluffy clouds and a gentle breeze enhance the dreamlike, candy-colored atmosphere, evoking a sense of adventure and wonder in this fantastical world.",
+          ImagePath:
+            "https://drive.google.com/file/d/1-m_HJeGXc8fxfc5WiVd8Ta8FwlE5p6IU/preview",
+        },
+        {
+          "Student Name": "Stephen Ka Huen Tsoi",
+          Title: "Imagine a Night of Cyber Elegance: Robots in the Spotlight",
+          Prompt:
+            "give me 2 robots dancing romaticly inside a indoor jazzy room with a staircase in the background and fancy dining tables and alot of human looking at them as they were in the spotlight in the dancing room",
+          ImagePath:
+            "https://drive.google.com/file/d/168_97P5nfNqjqw1fgqY3w74cW9GJoM_s/preview",
+        },
+        {
+          "Student Name": "Tadeo",
+          Title: "Imagine a World of Roblox Shark Chase",
+          Prompt:
+            "A thrilling Shark Bite 2 scene where Roblox avatars race across the ocean in colorful speedboats, dodging the massive fin of a shark emerging from the waves. The water splashes dramatically as the shark lurches, and players aim harpoons and rescue gear while shouting in excitement. The sky glows with sunset colors, adding tension and beauty to the high-stakes chase.",
+          ImagePath:
+            "https://drive.google.com/file/d/1lPkDCepNmtVz0m3mBYoMTVSvY0jdaEeX/preview",
+        },
+        {
+          "Student Name": "Ted Li",
+          Title: "The Future of Shadows",
+          Prompt:
+            "This artwork features a crime scene, brought to life as a photographic collage. It’s set in an urban backdrop, where harsh artificial lighting casts stark shadows, highlighting the tension in the air. The mood feels tense and dramatic, with deep reds and blacks dominating the color scheme. I chose a bird’s-eye view to help the scene stand out and tell its story.",
+          ImagePath:
+            "https://drive.google.com/file/d/1c3PQGa6MlRtaO36K_IaccXf9bnDvvi-Y/preview",
+        },
+        {
+          "Student Name": "Vania",
+          Title: "Imagine a World of Rainbow Paper Pokemon",
+          Prompt:
+            "A whimsical scene featuring a diverse group of cartoonish characters, each representing a different color of the rainbow. They are playfully interacting in a sunlit meadow, surrounded by vibrant flowers and lush greenery. Each character has a unique design that reflects their color—red, orange, yellow, green, blue, indigo, and violet—complete with joyful expressions. The lighting is bright and cheerful, with soft sunlight casting playful shadows on the ground. The composition centers around the characters holding hands in a circle, symbolizing friendship and unity. In the background, a radiant rainbow arches across a clear blue sky, enhancing the joyful and uplifting mood of the scene. The overall atmosphere is one of happiness, inclusivity, and celebration.",
+          ImagePath:
+            "https://drive.google.com/file/d/1iL1kyNP3gheI-_Prf36zjfX7Q_4L2Z-H/preview",
+        },
+        {
+          "Student Name": "Wun Yau Jamie Tam",
+          Title: "The Future of VR Game Battle",
+          Prompt:
+            "A young man wearing a VR headset and futuristic haptic gloves plays a futuristic first-person shooter game, vibrant neon blue and orange lighting, detailed textures, hyperrealistic, 8k resolution, trending on artstation",
+          ImagePath:
+            "https://drive.google.com/file/d/1JPBT0mbvIhcj5khJZ52rrScukbB8hdt-/preview",
+        },
+        {
+          "Student Name": "Jack Gardiner",
+          Title: "Enchanted Dining Under The Luminous Tree",
+          Prompt:
+            "a futuristic, elegant dining hall with a sleek, modern design, featuring a polished marble floor and neatly arranged tables adorned with white tablecloths and chairs. At the center, a breathtaking, otherworldly tree rises from a circular platform, its twisted trunk and branches glowing with vibrant blue-green hues and adorned with lush foliage, illuminated by a circular light ring above. Delicate streams of light or water cascade from the ceiling, enhancing the magical ambiance, while surrounding potted plants and soft ambient lighting create a harmonious blend of nature and advanced technology in this luxurious, serene setting.",
+          ImagePath:
+            "https://drive.google.com/file/d/1NF4ta0IowiTXhH5aWRn3RQOJoKRdmuhl/preview",
+        },
+        {
+          "Student Name": "Parker Wong",
+          Title: "March of the Alien Horizon",
+          Prompt:
+            "a haunting, otherworldly scene set on a barren, desolate landscape under a massive, fiery orange sun dominating a crimson sky at sunset or dawn. A group of tall, slender alien figures with glowing green heads and dark, skeletal bodies stands prominently in the foreground, their silhouettes stark against the vivid backdrop. More aliens are faintly visible in the distance, marching across the cracked, arid ground, creating an eerie sense of an impending invasion or exploration.",
+          ImagePath:
+            "https://drive.google.com/file/d/1fM5Dabr3imPXHFTeplNDLWhxoJ5UI1Zv/preview",
+        },
+        {
+          "Student Name": "Stephanie Sze",
+          Title: "Melody of Friendship",
+          Prompt:
+            "a vibrant, joyful scene inside a cozy, pastel-colored living room bathed in soft, warm light from hanging lamps and large windows. A group of six diverse young people, dressed in colorful outfits, are gathered in a circle, playing musical instruments including guitars, a keyboard, and a tambourine, with musical notes floating around them to signify their harmonious melody.",
+          ImagePath:
+            "https://drive.google.com/file/d/1wmuVd8q8UcC-P_lHWhwWT-Vj2AgpWO3t/preview",
+        },
+        {
+          "Student Name": "Ching Wai Liam Sze",
+          Title: "Serenity Under the Buddha's Glow",
+          Prompt:
+            "a serene and spiritual scene set in a tranquil garden with a calm lake reflecting the soft glow of a large, radiant sun or halo in the sky. At the center, a cartoon-style Buddha figure, dressed in flowing yellow robes, sits cross-legged on a stone platform in a meditative pose, exuding peace and contentment. Surrounding the figure are lush cherry blossom trees with pink petals gently falling, while adorable baby animals like squirrels and rabbits play nearby on the grassy ground. The overall atmosphere is bathed in warm, golden light, creating a harmonious and uplifting ambiance of nature and enlightenment.",
+          ImagePath:
+            "https://drive.google.com/file/d/1GAzBl-SXNEuLR7h6YRovn2v1du8VATHw/preview",
+        },
+      ];
+
+      const cardContainer = document.getElementById("cardContainer");
+
+      projectsData.forEach((project) => {
+        // Skip cards with a "." title or no image path
+        if (project.Title === "." || !project.ImagePath) {
+          return;
+        }
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const cardInner = document.createElement("div");
+        cardInner.className = "card-inner";
+
+        const cardFront = document.createElement("div");
+        cardFront.className = "card-front";
+
+        // --- This makes the image clickable ---
+        const imageLink = document.createElement("a");
+        imageLink.href = project.ImagePath;
+        imageLink.target = "_blank"; // Open in a new tab
+
+        const image = document.createElement("img");
+        image.src = project.ImagePath;
+        image.alt = project.Title;
+
+        imageLink.appendChild(image);
+        cardFront.appendChild(imageLink);
+        // ------------------------------------
+
+        const title = document.createElement("h2");
+        title.textContent = project.Title;
+
+        const subtitle = document.createElement("h4");
+        subtitle.textContent = project["Student Name"];
+
+        cardFront.appendChild(title);
+        cardFront.appendChild(subtitle);
+
+        const cardBack = document.createElement("div");
+        cardBack.className = "card-back";
+
+        const promptText = document.createElement("p");
+        promptText.textContent = project.Prompt;
+        cardBack.appendChild(promptText);
+
+        cardInner.appendChild(cardFront);
+        cardInner.appendChild(cardBack);
+        card.appendChild(cardInner);
+        cardContainer.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
