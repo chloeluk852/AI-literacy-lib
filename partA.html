@@ -17,16 +17,15 @@
         margin: 0 auto;
         background-color: #f0f0f0;
       }
-      header {
-        text-align: center;
-        background-color: white;
-        padding: 10px 0;
-        width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      header img {
-        width: 100%;
-        max-width: 250px;
+      .sticky {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #ffffff;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        z-index: 100; /* Ensure the navbar is above other content */
       }
       h1 {
         text-align: center;
