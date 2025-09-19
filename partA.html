@@ -235,7 +235,7 @@
           Title: ".",
           Prompt: ".",
           ImagePath:
-            "img/partA-img-reduced/Screenshot 2025-08-04 at 3.23.02 PM.png",
+            "img/partA-img-reduced/Screenshot 2025-08-04 at 3.23.02 PM.png",
           DriveLink:
             "https://drive.google.com/file/d/15Wcd1dTupyp5nQTI1h-NELrMIfRpmacq/preview",
         },
@@ -750,11 +750,6 @@
       const cardContainer = document.getElementById("cardContainer");
 
       projectsData.forEach((project) => {
-        // Skip cards with a "." title or no image path
-        if (project.Title === "." || !project.ImagePath) {
-          return;
-        }
-
         // --- This makes the entire card a clickable link ---
         const cardLink = document.createElement("a");
         cardLink.href = project.DriveLink;
